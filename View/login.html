@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel='stylesheet' href='../View/css/login.css'>
+	<script src="../View/js/login.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<title>Login</title>
+</head>
+
+<body>
+
+	<div class="login-page">
+		<div class="form">
+			<form class="register-form" id="registerForm" action="../Controller/register.php" method="POST">
+				<!--Resgistrazione-->
+				<input type="text" placeholder="Username" id="register-username" name="register-username"/>
+				<div>
+					<input type="password" placeholder="Password" id="register-password" name="register-password"/>
+					<i class="occhio fa fa-eye-slash" onclick="showPasswordRegister()"
+						style="margin-left: -30px; cursor: pointer;"></i>
+				</div>
+				<input type="text" placeholder="Indirizzo email" id="register-email" name="register-email"/>
+				<button>Crea</button>
+				<p class="message">Sei già registrato? <a onclick="showLoginForm()">Accedi</a></p>
+			</form>
+
+			<form class="login-form" id="loginForm" action="../Controller/login.php" method="POST"><!--Login-->
+				<div id="error" style="color: #FF0000;">
+				</div>
+				<input type="text" placeholder="Username" id="login-username" name="login-username"/>
+				<div>
+					<input type="password" placeholder="Password" id="login-password" name="login-password"/>
+					<i class="occhio fa fa-eye-slash" onclick="showPasswordLogin()"
+						style="margin-left: -30px; cursor: pointer;"></i>
+				</div>
+				<button>login</button>
+				<p class="message">Non sei registrato? <a onclick="showRegisterForm()">Crea un account</a></p>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>
