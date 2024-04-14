@@ -1,15 +1,34 @@
-CREATE DATABASE IF NOT EXISTS `d&d`;
-USE `d&d`;
+CREATE DATABASE IF NOT EXISTS note;
 
-DROP TABLE IF EXISTS `utenti`;
-CREATE TABLE `utenti` (
-  `ute_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ute_username` varchar(50) NOT NULL UNIQUE,
-  `ute_password` varchar(50) NOT NULL,
-  `ute_email` varchar(50) NOT NULL,
-  PRIMARY KEY(`ute_id`)
+USE note;
+
+CREATE TABLE utenti (
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE username_unique (username),
+  UNIQUE email_unique (email)
 );
 
+CREATE TABLE note (
+  id INT NOT NULL AUTO_INCREMENT,
+  titolo VARCHAR(100) NOT NULL,
+  contenuto TEXT NOT NULL,
+  data_creazione DATE NOT NULL,
+  data_modifica DATE NOT NULL,
+  id_utente INT NOT NULL,
+  id_raccoglitore INT NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_utenti_note FOREIGN KEY (id_utente) REFERENCES utenti(id),
+  CONSTRAINT fk_raccoglitori_note FOREIGN KEY (id_raccoglitore) REFERENCES raccoglitori(id)
+);
 
-INSERT INTO `utenti` (`ute_id`, `ute_username`, `ute_password`, `ute_email`) VALUES
-(1, 'bona', '1234', 'ciao@email');
+CREATE TABLE raccoglitori (
+  id INT NOT NULL AUTO_INCREMENT,
+  titolo VARCHAR(100) NOT NULL,
+  id_utente INT NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT fk_utenti_raccoglitori FOREIGN KEY (id_utente) REFERENCES utenti(id)
+);
