@@ -3,7 +3,8 @@ window.addEventListener("load",()=>{
     const errore = urlParams.get('error')
     console.log(errore);
     if(errore){
-        document.getElementById('error').textContent="Utente o Password non corretti";
+        urlParams.delete('error')
+        document.getElementById('error').textContent=errore;
     }
 });
 

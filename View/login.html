@@ -14,8 +14,8 @@
 
 	<div class="login-page">
 		<div class="form">
-			<form class="register-form" id="registerForm" action="../Controller/register2.php" method="POST">
-				<!--Resgistrazione-->
+			<form class="register-form" id="registerForm" action="../Controller/register.php" method="POST">
+				<!--Registrazione-->
 				<input type="text" placeholder="Username" id="register-username" name="register-username"/>
 				<div>
 					<input type="password" placeholder="Password" id="register-password" name="register-password"/>
@@ -27,7 +27,8 @@
 				<p class="message">Sei già registrato? <a onclick="showLoginForm()">Accedi</a></p>
 			</form>
 
-			<form class="login-form" id="loginForm" action="../Controller/login.php" method="POST"><!--Login-->
+			<form class="login-form" id="loginForm" action="../Controller/login.php" method="POST">
+				<!--Login-->
 				<div id="error" style="color: #FF0000;">
 				</div>
 				<input type="text" placeholder="Username" id="login-username" name="login-username"/>
