@@ -1,5 +1,5 @@
-function redirectToNote(id) {
-    window.location.href = "note.php?id_raccoglitore=" + id;
+function redirectToEditor(id) {
+    window.location.href = "editor.php?id=" + id;
 };
 
 window.addEventListener("load", () => {
@@ -35,7 +35,7 @@ window.addEventListener("load", () => {
                     titoloElemento.value = '';
                 }
             };
-            xhr.open('POST', '../Controller/aggiungi_raccoglitore.php');
+            xhr.open('POST', '../Controller/aggiungi_nota.php');
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); //dati codificati in formato uri
             xhr.send('titolo=' + encodeURIComponent(titolo));
         } else {

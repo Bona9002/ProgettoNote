@@ -6,21 +6,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel='stylesheet' href='../View/css/login.css'>
 	<script src="../View/js/login.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<title>Login</title>
 </head>
 
 <body>
-
 	<div class="login-page">
 		<div class="form">
 			<form class="register-form" id="registerForm" action="../Controller/register.php" method="POST">
 				<!--Registrazione-->
 				<input type="text" placeholder="Username" id="register-username" name="register-username"/>
-				<div>
+				<div class="password-wrapper">
 					<input type="password" placeholder="Password" id="register-password" name="register-password"/>
-					<i class="occhio fa fa-eye-slash" onclick="showPasswordRegister()"
-						style="margin-left: -30px; cursor: pointer;"></i>
+					<!-- <i class="occhio fa fa-eye-slash" onclick="showPasswordRegister()"
+						style="margin-left: -30px; cursor: pointer;"></i> -->
+					<span class="occhio material-symbols-outlined" onclick="showPasswordRegister()"
+						style="margin-left: -30px; cursor: pointer;">visibility_off</span>	
 				</div>
 				<input type="text" placeholder="Indirizzo email" id="register-email" name="register-email"/>
 				<button>Crea</button>
@@ -32,10 +33,12 @@
 				<div id="error" style="color: #FF0000;">
 				</div>
 				<input type="text" placeholder="Username" id="login-username" name="login-username"/>
-				<div>
+				<div class="password-wrapper">
 					<input type="password" placeholder="Password" id="login-password" name="login-password"/>
-					<i class="occhio fa fa-eye-slash" onclick="showPasswordLogin()"
-						style="margin-left: -30px; cursor: pointer;"></i>
+					<!-- <i class="occhio fa fa-eye-slash" onclick="showPasswordLogin()"
+						style="margin-left: -30px; cursor: pointer;"></i> -->
+					<span class="occhio material-symbols-outlined" onclick="showPasswordLogin()"
+						style="margin-left: -30px; cursor: pointer;">visibility_off</span>	
 				</div>
 				<button>login</button>
 				<p class="message">Non sei registrato? <a onclick="showRegisterForm()">Crea un account</a></p>

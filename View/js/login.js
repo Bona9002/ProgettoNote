@@ -24,8 +24,11 @@ function showPasswordRegister() {
     let icons = document.getElementsByClassName('occhio');
     if (password.type === "password") {
         password.type = "text";
+        //icons.innerHTML = "visibility";
+        
         for (let icon of icons) {
-            icon.classList.replace("fa-eye-slash","fa-eye")
+            icon.innerHTML = "visibility"
+            //icon.classList.replace("fa-eye-slash","fa-eye")
         }
         
         //icon.classList.add("fa-eye-slash");
@@ -33,9 +36,10 @@ function showPasswordRegister() {
     }
     else {
         password.type = "password";
-        for (let icon of icons) {
-            icon.classList.replace("fa-eye","fa-eye-slash")
-        }
+         for (let icon of icons) {
+            icon.innerHTML = "visibility_off"
+             //icon.classList.replace("fa-eye","fa-eye-slash")
+         }
         //icon.classList.add("fa-eye");
         //icon.classList.remove("fa-eye-slash");
     }
@@ -47,13 +51,15 @@ function showPasswordLogin() {
     if (password.type === "password") {
         password.type = "text";
         for (let icon of icons) {
-            icon.classList.replace("fa-eye-slash","fa-eye")
+            icon.innerHTML = "visibility"
+            //icon.classList.replace("fa-eye-slash","fa-eye")
         }
     }
     else {
         password.type = "password";
         for (let icon of icons) {
-            icon.classList.replace("fa-eye","fa-eye-slash")
-        }
+            icon.innerHTML = "visibility_off"
+             //icon.classList.replace("fa-eye","fa-eye-slash")
+         }
     }
 }

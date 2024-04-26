@@ -32,24 +32,24 @@ function get_raccoglitori($id_utente, $conn){
     return $result;
 }
 
-// function get_n_raccoglitori($id_utente, $conn){
-//     $sql = "SELECT count(*) FROM raccoglitori WHERE id_utente=?";
-//     $stmt = $conn->prepare($sql);
-//     $stmt->bind_param("i", $id_utente);
-//     $stmt->execute();
-//     $result = $stmt->get_result();
-//     return $result;
-// }
-
-function mostraRaccoglitori($id_utente, $conn){
+function mostra_raccoglitori($id_utente, $conn){
     $result = get_raccoglitori($id_utente, $conn);
+    $k =0;
+    echo "<table id=\"tabella\">";
     if ($result->num_rows > 0) {
+        echo "<tr>";
         while($row = $result->fetch_assoc()) {
-            echo "<div class='box' onclick='redirectToView(" . $row['id'] . ")'>" . $row['titolo'] . "</div>";
+            $k = $k + 1;
+            echo "<td class='box' onclick='redirectToNote(" . $row['id'] . ")'>" . $row['titolo'] . "</td>";
+            if ($k % 10 == 0) {
+                echo "</tr><tr>";
+            }
         }
+        echo "</tr>";
     } else {
-        echo "<div>Non è ancora stato creato un raccoglitore</div>";
+        echo "<tr><td colspan='5'>Non è ancora stato creato nessun raccoglitore</td></tr>";
     }
+    echo "</table>";
 }
 
 ?>

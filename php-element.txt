@@ -1,0 +1,9 @@
+<?php for ($i = 1; $i <= 5; $i++): ?>
+        <div class="note">Appunto <?= $i ?><button class="delete-btn" onclick="deleteNote()">Elimina</button></div>
+<?php endfor; ?>
+
+<?php if ($condition): ?>
+        <!-- Codice HTML se la condizione è vera -->
+<?php else: ?>
+        <!-- Codice HTML se la condizione è falsa -->
+<?php endif; ?>
