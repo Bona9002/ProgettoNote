@@ -23,7 +23,7 @@ include '../Model/model_raccoglitori.php';
     <div class="dashboard-page">
         
         <div class="container"">
-        <!-- todo <span id="logout" class="material-symbols-outlined" onclick="chiudiDialog()">close</span> -->
+            <a id="logoutButton" href="../Controller/logout.php">Logout</a>
             <!-- htmlspecialchars evita che ciò che inserisco venga interpretato dal browser (sanitizzazione)-->
             <h1>Benvenuto <?= htmlspecialchars($_SESSION['username']) ?></h1>
             <button id="aggiungiElemento">Crea raccoglitore</button>

@@ -18,10 +18,17 @@ function create_nota_titolo($titolo, $id_utente, $id_raccoglitore, $conn){
     return $stmt->execute();
 }
 
-function update_nota($titolo, $contenuto, $id, $conn){
-    $sql = "UPDATE note SET titolo=?, contenuto=?, data_modifica=NOW() WHERE id=?";
+function update_nota_titolo($titolo, $id, $conn){
+    $sql = "UPDATE note SET titolo=?, data_modifica=NOW() WHERE id=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssi", $titolo, $contenuto, $id);
+    $stmt->bind_param("si", $titolo, $id);
+    return $stmt->execute();
+}
+
+function update_nota_contenuto($contenuto, $id, $conn){
+    $sql = "UPDATE note SET contenuto=?, data_modifica=NOW() WHERE id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("si", $contenuto, $id);
     return $stmt->execute();
 }
 
@@ -44,7 +51,8 @@ function get_nota_by_id($id, $conn){
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
-    $result = $stmt->get_result();
+    $queryRes = $stmt->get_result();
+    $result = $queryRes->fetch_assoc();
     return $result;
 }
 
@@ -74,7 +82,8 @@ function mostra_note($id_utente, $id_raccoglitore, $conn){
         echo "<tr>";
         while($row = $result->fetch_assoc()) {
             $k = $k + 1;
-            echo "<td class='box' onclick='redirectToEditor(" . $row['id'] . ")'>" . $row['titolo'] . "</td>";
+            $formatted_date = date('d/m/Y', strtotime($row['data_modifica']));
+            echo "<td class='box' onclick='redirectToEditor(" . $row['id'] . ")'><b>" . $row['titolo'] . "</b><br><small>Data ultima modifica: " . $formatted_date . "</small></td>";
             if ($k % 10 == 0) {
                 echo "</tr><tr>";
             }

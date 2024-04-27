@@ -1,19 +1,36 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
+    background: #500000;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;  
 }
-
+.edit-page {
+    padding: 4% 0 4%;
+    margin: auto;
+    button {
+        text-transform: uppercase;
+        outline: 0;
+        background: #800000 ;
+        width: 15%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+}
+.edit-page button:hover,.edit-page button:active,.edit-page button:focus {
+    background: #131313;
+}
 .container {
-    max-width: 80%;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    margin: 0 auto 100px;
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
 textarea {
     width: 95%;
     height: 70vh;
@@ -23,7 +40,6 @@ textarea {
     overflow-y: auto;
     resize: none;
 }
-
 button {
     padding: 10px 20px;
     background-color: #007bff;
@@ -32,11 +48,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-
 button:hover {
     background-color: #0056b3;
 }
-
 .note {
     margin-bottom: 10px;
     padding: 10px;
@@ -44,7 +58,6 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
-
 .delete-btn {
     margin-left: 1rem;
     background-color: #dc3545;
@@ -53,9 +66,45 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
 }
-
 .button-container {
     justify-content: end;
     display: flex;
     margin-bottom: 1%;
+}
+#dialog {
+    text-align: center;
+    position: fixed;
+    width: 40%;
+    height: 5%;
+    top: 50%;
+    left: 40%;
+    transform: translate(-20%, -20%);
+    background-color: #FFFFFF;
+    padding: 20px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    button {
+      text-transform: uppercase;
+      outline: 0;
+      background: #800000 ;
+      width: 30%;
+      border: 0;
+      padding: 5px;
+      color: #FFFFFF;
+      font-size: 14px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+    }
+}
+#dialog button:hover,#dialog button:active,#dialog button:focus {
+    background: #131313;
+}
+#chiudiDialog {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 5px;
 }

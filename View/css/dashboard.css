@@ -83,3 +83,19 @@ body {
     cursor: pointer;
     padding: 5px;
 }
+#logoutButton {
+    text-transform: uppercase;
+    position: fixed;
+    top: 8%;
+    right: 1%;
+    padding: 10px 20px;
+    background-color: #800000;
+    color: #FFFFFF;
+    border: none;
+    /* border-radius: 5px; */
+    text-decoration: none; /* Rimuove il sottolineato dei link */
+    cursor: pointer;
+}
+#logoutButton:hover,#logoutButton:active,#logoutButton:focus {
+    background: #131313;
+}

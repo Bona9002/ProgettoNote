@@ -8,7 +8,6 @@ window.addEventListener("load", () => {
     const btnConfermaAggiunta = document.getElementById('confermaAggiunta');
     const dialog = document.getElementById('dialog');
     const titoloElemento = document.getElementById('titoloElemento');
-    const listaElementi = document.getElementById('tabella');
 
     // Gestisci il click sul pulsante "Aggiungi Elemento"
     btnAggiungiElemento.addEventListener('click', () => {

@@ -1,6 +1,6 @@
 .box {
     width: 5rem;
-    height: 2rem;
+    height: auto;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     margin: 10px;
@@ -9,12 +9,15 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    display: flex;
     cursor: pointer;
+    overflow: hidden;
+    small {
+        display: block;
+        font-size: 0.8em;
+    }
 }
 body {
     background: #500000;
-    /* background: linear-gradient(90deg, #500000 0%, #500000 50%); */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;      
 }
@@ -33,19 +36,19 @@ body {
         -webkit-transition: all 0.3 ease;
         transition: all 0.3 ease;
         cursor: pointer;
-      }
+    }
   }
 .dashboard-page button:hover,.dashboard-page button:active,.dashboard-page button:focus {
     background: #131313;
 }
 .container {
-  position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #dialog {
     position: fixed;
@@ -82,4 +85,22 @@ body {
     right: 0;
     cursor: pointer;
     padding: 5px;
+}
+#logoutButton {
+    text-transform: uppercase;
+    position: fixed;
+    top: 8%;
+    right: 1%;
+    padding: 10px 20px;
+    background-color: #800000;
+    color: #FFFFFF;
+    border: none;
+    text-decoration: none; /* Rimuove il sottolineato dei link */
+    cursor: pointer;
+}
+#logoutButton:hover,#logoutButton:active,#logoutButton:focus {
+    background: #131313;
+}
+#titolo {
+    text-align: left;
 }
