@@ -17,7 +17,6 @@ if ($conn->connect_error) {
 $result = get_utente_by_username($_POST['register-username'], $conn);
 
 if ($result->num_rows > 0) {
-    //echo "utente già registrato";
     $err = 'Username già usato';
     header("Location: ../View/login.html?error=$err");
 } else {

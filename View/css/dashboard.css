@@ -15,7 +15,6 @@
 }
 body {
     background: #500000;
-    /* background: linear-gradient(90deg, #500000 0%, #500000 50%); */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;      
 }
@@ -93,8 +92,7 @@ body {
     background-color: #800000;
     color: #FFFFFF;
     border: none;
-    /* border-radius: 5px; */
-    text-decoration: none; /* Rimuove il sottolineato dei link */
+    text-decoration: none;
     cursor: pointer;
 }
 #logoutButton:hover,#logoutButton:active,#logoutButton:focus {

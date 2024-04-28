@@ -4,8 +4,11 @@ include '../Model/config.php';
 include '../Controller/checkAuthenticate.php';
 include '../Model/model_note.php';
 
-$nota = get_nota_by_id($_GET['id'], $conn);
 $_SESSION['id_nota'] = $_GET['id'];
+$nota = get_nota_by_id($_GET['id'], $_SESSION['id_utente'], $conn);
+if ($nota === null) {
+    header("Location: error.php");
+}
 
 ?>
 

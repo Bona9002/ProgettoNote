@@ -5,6 +5,12 @@ include '../Controller/checkAuthenticate.php';
 include '../Model/model_note.php';
 include '../Model/model_raccoglitori.php';
 
+$_SESSION['id_raccoglitore'] = $_GET['id_raccoglitore'];
+$raccoglitore = get_raccoglitore_by_id($_GET['id_raccoglitore'], $_SESSION['id_utente'], $conn);
+if ($raccoglitore === null) {
+    header("Location: error.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +37,6 @@ include '../Model/model_raccoglitori.php';
                 <button id="confermaAggiunta">Aggiungi</button>
             </div>
 
-            <?php
-            $_SESSION['id_raccoglitore'] = $_GET['id_raccoglitore'];
-            $raccoglitore = get_raccoglitore_by_id($_GET['id_raccoglitore'] ,$conn)
-            ?>
             <div class="raccoglitore-header">
                 <h1 id="titolo"><?= $raccoglitore['titolo'] ?></h1>
                 <span class="material-symbols-outlined delete-icon" onclick="cancellaRaccoglitore()">delete</span>

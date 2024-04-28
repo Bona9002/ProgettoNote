@@ -1,7 +1,6 @@
 window.addEventListener("load",()=>{
     const urlParams = new URLSearchParams(window.location.search);
     const errore = urlParams.get('error')
-    console.log(errore);
     if(errore){
         urlParams.delete('error')
         document.getElementById('error').textContent=errore;
@@ -24,24 +23,16 @@ function showPasswordRegister() {
     let icons = document.getElementsByClassName('occhio');
     if (password.type === "password") {
         password.type = "text";
-        //icons.innerHTML = "visibility";
         
         for (let icon of icons) {
             icon.innerHTML = "visibility"
-            //icon.classList.replace("fa-eye-slash","fa-eye")
         }
-        
-        //icon.classList.add("fa-eye-slash");
-        //icon.classList.remove("fa-eye");
     }
     else {
         password.type = "password";
          for (let icon of icons) {
             icon.innerHTML = "visibility_off"
-             //icon.classList.replace("fa-eye","fa-eye-slash")
          }
-        //icon.classList.add("fa-eye");
-        //icon.classList.remove("fa-eye-slash");
     }
 }
 
@@ -52,14 +43,12 @@ function showPasswordLogin() {
         password.type = "text";
         for (let icon of icons) {
             icon.innerHTML = "visibility"
-            //icon.classList.replace("fa-eye-slash","fa-eye")
         }
     }
     else {
         password.type = "password";
         for (let icon of icons) {
             icon.innerHTML = "visibility_off"
-             //icon.classList.replace("fa-eye","fa-eye-slash")
          }
     }
 }

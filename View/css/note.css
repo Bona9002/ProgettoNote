@@ -37,7 +37,7 @@ body {
         transition: all 0.3 ease;
         cursor: pointer;
     }
-  }
+}
 .dashboard-page button:hover,.dashboard-page button:active,.dashboard-page button:focus {
     background: #131313;
 }
@@ -95,7 +95,7 @@ body {
     background-color: #800000;
     color: #FFFFFF;
     border: none;
-    text-decoration: none; /* Rimuove il sottolineato dei link */
+    text-decoration: none;
     cursor: pointer;
 }
 #logoutButton:hover,#logoutButton:active,#logoutButton:focus {

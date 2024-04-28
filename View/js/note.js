@@ -86,20 +86,19 @@ function chiudiDialog() {
 };
 
 function cancellaRaccoglitore() {
-    if(confirm('Vuoi davvero cancellare il raccoglitore?')) {
+    if (confirm('Vuoi davvero cancellare il raccoglitore?')) {
         const xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        //window.history.back();
-                    } else {
-                        console.error('Errore durante la cancellazione dell\'elemento');
-                        alert('Errore durante la cancellazione dell\'elemento, assicurati che non ci siano note al suo interno');
-                    }
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    window.history.back();
+                } else {
+                    alert('Errore durante la cancellazione dell\'elemento, assicurati che non ci siano note al suo interno');
                 }
-            };
-            xhr.open('POST', '../Controller/cancella_raccoglitore.php');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); //dati codificati in formato uri
-            xhr.send();
+            }
+        };
+        xhr.open('POST', '../Controller/cancella_raccoglitore.php');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); //dati codificati in formato uri
+        xhr.send();
     }
 }

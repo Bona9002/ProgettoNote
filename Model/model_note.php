@@ -46,14 +46,19 @@ function update_id_raccoglitore($id, $id_raccoglitore, $conn){
     return $stmt->execute();
 }
 
-function get_nota_by_id($id, $conn){
-    $sql = "SELECT * FROM note WHERE id=?";
+function get_nota_by_id($id, $id_utenti, $conn){
+    $sql = "SELECT * FROM note INNER JOIN utenti ON (utenti.id = note.id_utente) WHERE note.id=? AND utenti.id=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("ii", $id, $id_utenti);
     $stmt->execute();
     $queryRes = $stmt->get_result();
-    $result = $queryRes->fetch_assoc();
-    return $result;
+
+    if ($queryRes->num_rows > 0) {
+        $result = $queryRes->fetch_assoc();
+        return $result;
+    } else {
+        return null;
+    }
 }
 
 function get_note_by_raccoglitore($id_raccoglitore, $conn){
@@ -84,7 +89,7 @@ function mostra_note($id_utente, $id_raccoglitore, $conn){
             $k = $k + 1;
             $formatted_date = date('d/m/Y', strtotime($row['data_modifica']));
             echo "<td class='box' onclick='redirectToEditor(" . $row['id'] . ")'><b>" . $row['titolo'] . "</b><br><small>Data ultima modifica: " . $formatted_date . "</small></td>";
-            if ($k % 10 == 0) {
+            if ($k % 9 == 0) {
                 echo "</tr><tr>";
             }
         }

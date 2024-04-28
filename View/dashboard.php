@@ -6,9 +6,6 @@ include '../Model/model_raccoglitori.php';
 
 ?>
 
-<!--todo 
-     logout dalla pagina-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

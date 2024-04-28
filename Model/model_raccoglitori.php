@@ -32,14 +32,19 @@ function get_raccoglitori($id_utente, $conn){
     return $result;
 }
 
-function get_raccoglitore_by_id($id, $conn){
-    $sql = "SELECT * FROM raccoglitori WHERE id=?";
+function get_raccoglitore_by_id($id, $id_utente, $conn){
+    $sql = "SELECT * FROM raccoglitori INNER JOIN utenti ON (utenti.id = raccoglitori.id_utente) WHERE raccoglitori.id=? AND utenti.id=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("ii", $id, $id_utente);
     $stmt->execute();
     $queryRes = $stmt->get_result();
-    $result = $queryRes->fetch_assoc();
-    return $result;
+
+    if ($queryRes->num_rows > 0) {
+        $result = $queryRes->fetch_assoc();
+        return $result;
+    } else {
+        return null;
+    }
 }
 
 function mostra_raccoglitori($id_utente, $conn){
@@ -51,7 +56,7 @@ function mostra_raccoglitori($id_utente, $conn){
         while($row = $result->fetch_assoc()) {
             $k = $k + 1;
             echo "<td class='box' id='box' onclick='redirectToNote(" . $row['id'] . ")'><b>" . $row['titolo'] . "</b></td>";
-            if ($k % 10 == 0) {
+            if ($k % 9 == 0) {
                 echo "</tr><tr>";
             }
         }
