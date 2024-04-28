@@ -35,7 +35,10 @@ include '../Model/model_raccoglitori.php';
             $_SESSION['id_raccoglitore'] = $_GET['id_raccoglitore'];
             $raccoglitore = get_raccoglitore_by_id($_GET['id_raccoglitore'] ,$conn)
             ?>
-            <h1 id="titolo"><?= $raccoglitore['titolo'] ?></h1>
+            <div class="raccoglitore-header">
+                <h1 id="titolo"><?= $raccoglitore['titolo'] ?></h1>
+                <span class="material-symbols-outlined delete-icon" onclick="cancellaRaccoglitore()">delete</span>
+            </div>
             <div id="dialog-raccoglitore" style="display: none;">
                 <span id="chiudiDialog-raccoglitore" class="material-symbols-outlined" onclick="chiudiDialog()">close</span>
                     <input type="text" id="titoloElemento-raccoglitore" placeholder="Modifica il titolo">

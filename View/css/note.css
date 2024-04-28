@@ -1,5 +1,6 @@
 .box {
     width: 5rem;
+    min-height: 2rem;
     height: auto;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -10,7 +11,6 @@
     justify-content: center;
     text-align: center;
     cursor: pointer;
-    overflow: hidden;
     small {
         display: block;
         font-size: 0.8em;
@@ -89,7 +89,7 @@ body {
 #logoutButton {
     text-transform: uppercase;
     position: fixed;
-    top: 8%;
+    top: 10%;
     right: 1%;
     padding: 10px 20px;
     background-color: #800000;
@@ -103,4 +103,49 @@ body {
 }
 #titolo {
     text-align: left;
+}
+#dialog-raccoglitore {
+    text-align: center;
+    position: fixed;
+    width: 40%;
+    height: 5%;
+    top: 50%;
+    left: 40%;
+    transform: translate(-20%, -20%);
+    background-color: #FFFFFF;
+    padding: 20px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+    button {
+      text-transform: uppercase;
+      outline: 0;
+      background: #800000 ;
+      width: 30%;
+      border: 0;
+      padding: 5px;
+      color: #FFFFFF;
+      font-size: 14px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+    }
+}
+#dialog-raccoglitore button:hover,#dialog-raccoglitore button:active,#dialog-raccoglitore button:focus {
+    background: #131313;
+}
+#chiudiDialog-raccoglitore {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 5px;
+}
+.raccoglitore-header {
+    display: flex;
+    align-items: center;
+}
+.delete-icon {
+    margin-left: 2%;
+    cursor: pointer;
 }

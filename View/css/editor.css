@@ -108,3 +108,11 @@ button:hover {
     cursor: pointer;
     padding: 5px;
 }
+.raccoglitore-header {
+    display: flex;
+    align-items: center;
+}
+.delete-icon {
+    margin-left: 2%;
+    cursor: pointer;
+}

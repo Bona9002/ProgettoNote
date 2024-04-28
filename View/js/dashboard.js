@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
                         location.reload()
                     } else {
                         // In caso di errore
-                        console.error('Errore durante l\'aggiunta dell\'elemento');
+                        alert('Errore durante l\'aggiunta dell\'elemento');
                     }
                     // Chiudi la finestra di dialogo
                     dialog.style.display = 'none';

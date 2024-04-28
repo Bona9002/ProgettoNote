@@ -50,7 +50,7 @@ function mostra_raccoglitori($id_utente, $conn){
         echo "<tr>";
         while($row = $result->fetch_assoc()) {
             $k = $k + 1;
-            echo "<td class='box' onclick='redirectToNote(" . $row['id'] . ")'><b>" . $row['titolo'] . "</b></td>";
+            echo "<td class='box' id='box' onclick='redirectToNote(" . $row['id'] . ")'><b>" . $row['titolo'] . "</b></td>";
             if ($k % 10 == 0) {
                 echo "</tr><tr>";
             }

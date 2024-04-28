@@ -16,7 +16,7 @@ function salva_nota() {
                     location.reload()
                 } else {
                     // In caso di errore
-                    console.error('Errore durante l\'aggiunta dell\'elemento');
+                    alert('Errore durante l\'aggiunta dell\'elemento');
                 }
             }
         };
@@ -56,7 +56,7 @@ window.addEventListener("load", () => {
                         location.reload()
                     } else {
                         // In caso di errore
-                        console.error('Errore durante l\'aggiunta dell\'elemento');
+                        alert('Errore durante l\'aggiunta dell\'elemento');
                     }
                     // Chiudi la finestra di dialogo
                     dialog.style.display = 'none';
@@ -76,3 +76,22 @@ window.addEventListener("load", () => {
 function chiudiDialog() {
     document.getElementById('dialog').style.display = 'none';
 };
+
+function cancellaNota() {
+    if(confirm('Vuoi davvero cancellare la nota, non potrai più recuperarla')) {
+        const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        window.history.back();
+                    } else {
+                        // In caso di errore
+                        alert('Errore durante la cancellazione dell\'elemento');
+                    }
+                }
+            };
+            xhr.open('POST', '../Controller/cancella_nota.php');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); //dati codificati in formato uri
+            xhr.send();
+    }
+}

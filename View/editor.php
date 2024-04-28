@@ -24,7 +24,10 @@ $_SESSION['id_nota'] = $_GET['id'];
 <body>
     <div class="edit-page">
         <div class="container">
+            <div class="raccoglitore-header">
             <h1 id="titolo"><?= $nota['titolo'] ?></h1>
+                <span class="material-symbols-outlined delete-icon" onclick="cancellaNota()">delete</span>
+            </div>
             <div id="dialog" style="display: none;">
                 <span id="chiudiDialog" class="material-symbols-outlined" onclick="chiudiDialog()">close</span>
                     <input type="text" id="titoloElemento" placeholder="Modifica il titolo">

@@ -28,7 +28,7 @@ include '../Model/model_raccoglitori.php';
             <h1>Benvenuto <?= htmlspecialchars($_SESSION['username']) ?></h1>
             <button id="aggiungiElemento">Crea raccoglitore</button>
             <div id="dialog" style="display: none;">
-            <span id="chiudiDialog" class="material-symbols-outlined" onclick="chiudiDialog()">close</span>
+                <span id="chiudiDialog" class="material-symbols-outlined" onclick="chiudiDialog()">close</span>
                 <input type="text" id="titoloElemento" placeholder="Inserisci il titolo">
                 <button id="confermaAggiunta">Aggiungi</button>
             </div>
